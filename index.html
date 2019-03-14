@@ -1,0 +1,114 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GLOBAL SEARCH</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <style>
+  
+  </style>
+</head>
+<body>
+    </head>
+    <body>
+    
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#">GLOBAL SEARCH</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">PHOTO</a></li>
+            <li><a href="#">WHERE</a></li>
+            <li><a href="#">WHEN</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container-fluid bg-1 text-center">
+      <h3 class="margin">PHOTO</h3>
+      <img src="image2.jpg" id="the-img" style="max-width: 100px;"><br>
+    </div>
+    
+    <div class="container-fluid bg-2 text-center">
+      <h3 class="margin">WHERE</h3>
+      <p id="pic-info"></p>
+      <p id="map-link"></p>
+      <a href="#" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </a>
+    </div>
+    
+    <div class="container-fluid bg-3 text-center">    
+      <h3 class="margin">SHUTTER</h3><br>
+      <div class="row">
+        <div class="col-sm-4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <img src="IMAGE1.jpg" class="img-responsive margin" style="width:75%" alt="Image">
+        </div>
+        <div class="col-sm-4"> 
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <img src="IMAGE2.jpg" class="img-responsive margin" style="width:75%" alt="Image">
+        </div>
+        <div class="col-sm-4"> 
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <img src="IMAGE3.jpg" class="img-responsive margin" style="width:75%" alt="Image">
+        </div>
+      </div>
+    </div>  
+    <script type="text/javascript" src="exif.js"></script>
+    <script>
+        document.getElementById("the-img").onclick = function() {
+            EXIF.getData(this, function() {
+                myData = this;
+                console.log(myData.exifdata);
+                document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
+                
+                // Calculate latitude decimal
+                var latDegree = myData.exifdata.GPSLatitude[0].numerator;
+                var latMinute = myData.exifdata.GPSLatitude[1].numerator;
+                var latSecond = myData.exifdata.GPSLatitude[2].numerator;
+                var latDirection = myData.exifdata.GPSLatitudeRef;
+                
+                var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
+                console.log(latFinal);
+                // Calculate longitude decimal
+                var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
+                var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
+                var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
+                var lonDirection = myData.exifdata.GPSLongitudeRef;
+                var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
+                console.log(lonFinal);
+                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
+            });
+        }
+        function ConvertDMSToDD(degrees, minutes, seconds, direction) {
+            
+            var dd = degrees + (minutes/60) + (seconds/3600);
+            
+            if (direction == "S" || direction == "W") {
+                dd = dd * -1; 
+            }
+            
+            return dd;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
