@@ -17,7 +17,7 @@
 <body>
     </head>
     <body>
-    
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -37,15 +37,48 @@
         </div>
       </div>
     </nav>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
     
-    <div class="container-fluid bg-1 text-center">
-      <h3 class="margin">PHOTO</h3>
-      <img src="image2.jpg" id="the-img" style="max-width: 100px;"><br>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <h3 class="margin">PHOTO</h3>
+        <div class="item active">
+            <img src="./assets/images/moab.jpg"> alt="Moab" id="the-img" style="max-width: 100px;">
+          <p id="pic-info"></p>
+        </div>
+    
+        <div class="item">
+            <img src="./assets/images/yosemite.jpg"> alt="Yosemite" id="the-img" style="max-width: 100px;">>
+          <p id="pic-info"></p>
+        </div>
+    
+        <div class="item">
+            <img src="./assets/images/laketahoe.jpg"> alt="Lake Tahoe" id="the-img" style="max-width: 100px;">>
+          <p id="pic-info"></p>
+        </div>
+      </div>
+    
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
+
     
     <div class="container-fluid bg-2 text-center">
       <h3 class="margin">WHERE</h3>
-      <p id="pic-info"></p>
       <p id="map-link"></p>
       <a href="#" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-search"></span> Search
@@ -57,15 +90,15 @@
       <div class="row">
         <div class="col-sm-4">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img src="IMAGE1.jpg" class="img-responsive margin" style="width:75%" alt="Image">
+          <img src="yosemite.jpg" class="img-responsive margin" style="width:75%" alt="Image">
         </div>
         <div class="col-sm-4"> 
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img src="IMAGE2.jpg" class="img-responsive margin" style="width:75%" alt="Image">
+          <img src="laketahoe.jpg" class="img-responsive margin" style="width:75%" alt="Image">
         </div>
         <div class="col-sm-4"> 
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img src="IMAGE3.jpg" class="img-responsive margin" style="width:75%" alt="Image">
+          <img src="moab.jpg" class="img-responsive margin" style="width:75%" alt="Image">
         </div>
       </div>
     </div>  
@@ -108,6 +141,10 @@
     </script>
 </body>
 </html>
+
+
+
+
 
 
 
