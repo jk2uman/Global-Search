@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cloudinary.com/console"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <style media="screen">
 
@@ -58,6 +60,35 @@
       //}
   //});
 //});
+////image storage container
+    var Cloudinary_URL = 'https://api.cloudinary.com/v1_1/monger/image/upload';
+    var Cloudinary_Upload_Preset = 'vh0ycmva';
+    //var uploadImage = document.getElementById("custom-button")
+    //console.log(uploadImage);
+    // var file upload = document.getElementById("real-file")
+    //uploadImage.addEventListener('click', function(event)) {
+    //var file = event.target.files[0];
+    var formData = new FormData();
+    formData.append('real-file',realFileBtn);
+    formData.append('upload_preset',Cloudinary_Upload_Preset);
+    axios({
+    url:Cloudinary_URL,
+    method:'Post',
+    headers:{
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data:formData
+    })
+    .then(function(res) {
+    console.log('this is repsonse',res);
+    realFileBtn = res.data.secure.url;
+    });
+    
+
+    
+    
+    
+
 customBtn.addEventListener("click", function(){
         realFileBtn.click(); 
       });
