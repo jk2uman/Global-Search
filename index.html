@@ -28,17 +28,9 @@
           </button>
           <a class="navbar-brand" href="#">GLOBAL SEARCH</a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">PHOTO</a></li>
-            <li><a href="#">WHERE</a></li>
-            <li><a href="#">WHEN</a></li>
-          </ul>
-        </div>
       </div>
     </nav>
     
-  
     <div style="display:flex;justify-content:center;align-items:center;">         
     <input type="file" id="real-file" />
     <span id="custom-text">No image, yet.</span>
@@ -46,58 +38,6 @@
     <!--<button onclick="addimage()" type="button">Add an image</button>-->
     <!--<input type="file" onchange="previewFile()"><br>
 <img src="" height="200" alt="Image preview...">-->
-    <script type="text/javascript">
-      const realFileBtn = document.getElementById("real-file");
-      const customBtn = document.getElementById("custom-button");
-      const customTxt = document.getElementById("custom-text");
-//window.addEventListener('load', function() {
-  //document.querySelector('input[type="file"]').addEventListener('change', function() {
-    //  if (this.files && this.files[0]) {
-      //    var img = document.querySelector('img');  // $('img')[0]
-        //  img.src = URL.createObjectURL(this.files[0]); // set src to file url
-          //img.onload = imageIsLoaded; // optional onload event listener
-      //}
-  //});
-//});
-var Cloudinary_URL = 'https://api.cloudinary.com/v1_1/monger/image/upload';
-    var Cloudinary_Upload_Preset = 'vh0ycmva';
-
-document.getElementById('real-file').addEventListener("change",uploadImage,false   )
-
-
-function uploadImage(event){
-
-
-  var file= event.target.files[0]; 
-console.log('file',file);
-
-  var formData=new FormData();
-  formData.append('file',file);
-  formData.append('upload_preset',Cloudinary_Upload_Preset);
-
-  axios({
-    url:Cloudinary_URL,
-    method:'POST',
-    headers:{
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data:formData
-    })
-    .then(function(res) {
-    console.log('this is repsonse',res)
-    }).catch(function(err){
-console.log(err);
-
-});
-
-
-
-
-
-}
-
-    </script>
-    
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -105,7 +45,6 @@ console.log(err);
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
-    
       <!-- Wrapper for slides --> 
       <div class="carousel-inner">
         <div class="item active">
@@ -123,7 +62,6 @@ console.log(err);
           <p id="pic-info"></p>
         </div>
       </div>
-    
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -134,7 +72,6 @@ console.log(err);
         <span class="sr-only">Next</span>
       </a>
     </div>
-
     
     <div class="container-fluid bg-2 text-center">
       <h3 class="margin">WHERE</h3>
@@ -142,82 +79,8 @@ console.log(err);
       <a href="#" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-search"></span> Search
       </a>
-    </div>
-    
-    <div class="container-fluid bg-3 text-center">    
-      <h3 class="margin">SHUTTER</h3><br>
-      <div class="row">
-        <div class="col-sm-4">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img src="./assets/images/Springs.jpg" class="img-responsive margin" style="width:80%" alt="Image">
-        </div>
-        <div class="col-sm-4"> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img src="./assets/images/Luxor.jpg" class="img-responsive margin" style="width:80%" alt="Image">
-        </div>
-        <div class="col-sm-4"> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img src="./assets/images/Highway.jpg" class="img-responsive margin" style="width:80%" alt="Image">
-        </div>
-      </div>
-    </div>  
-    <script type="text/javascript" src="./assets/javascript/javascript.js"></script>
-    <script>
-        var image = "";
-        var latLonTime = [];
-        //gets lat lon time from current image in carousel
-        $('#myCarousel').on('slid.bs.carousel', function () { //slid.bs.carousel is triggered after current image loads in carousel
-            image = $("div.active > img");
-            console.log("carousel image: ", image);
-            getLatLonTime(image[0]);
-          })
-      //get latLonTime from clicked image ***does not work on carousel images***
-        $("img").click(function(){
-            getLatLonTime(this);
-            console.log("clicked latLonTime",latLonTime); 
-        });
-        //get latLonTime from clicked image ***does not work on carousel images***
-        function getLatLonTime(imgElement) {
-            EXIF.getData(imgElement, function() {
-                myData = imgElement;
-                //console.log(myData.exifdata);
-                //document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
-                
-                // Calculate latitude decimal
-                var latDegree = myData.exifdata.GPSLatitude[0].numerator;
-                var latMinute = myData.exifdata.GPSLatitude[1].numerator;
-                var latSecond = myData.exifdata.GPSLatitude[2].numerator;
-                var latDirection = myData.exifdata.GPSLatitudeRef;
-                
-                var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
-                //console.log(latFinal);
-                // Calculate longitude decimal
-                var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
-                var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
-                var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
-                var lonDirection = myData.exifdata.GPSLongitudeRef;
-                var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
-                //console.log(lonFinal);
-               // document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
-            });
-        }
-        function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-            
-            var dd = degrees + (minutes/60) + (seconds/3600);
-            
-            if (direction == "S" || direction == "W") {
-                dd = dd * -1; 
-            }
-            
-            return dd;
-        }
-    </script>
+    </div> 
+    <script src="./assets/javascript/js.js"></script>
+    <script src="./assets/javascript/Exif.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
