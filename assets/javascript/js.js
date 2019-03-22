@@ -1,3 +1,12 @@
+var config = {
+  apiKey: "AIzaSyAA9vKLx0PhUub9e1lT4NrkySL4lwGctVQ",
+  authDomain: "nicole-project-one.firebaseapp.com",
+  databaseURL: "https://nicole-project-one.firebaseio.com",
+  projectId: "nicole-project-one",
+  storageBucket: "nicole-project-one.appspot.com",
+  messagingSenderId: "498124625746"
+};
+firebase.initializeApp(config);
 const realFileBtn = document.getElementById("real-file");
 const customBtn = document.getElementById("custom-button");
 const customTxt = document.getElementById("custom-text");
