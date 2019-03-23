@@ -1,77 +1,98 @@
+/* Start application styles */
+#map {
+  height: 425px;
+}
+/* Optional: Makes the sample page fill the window. */
+html,
 body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
-  }
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  #custom-button {
-    padding: 10px;
-    color: white;
-    background-color: #1abc9c;
-    border: 1px solid darkgray;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+/* header styles */
+.logo {
+  max-width: 100px;
+  max-height: 100px;
+  display: inline !important;
+}
 
-  #custom-button:hover {
-    background-color: darkgrey; 
-  }
+/* upload form styles */
 
-  #custom-text {
-    margin-left: 10px;
-    font-family: sans-serif;
-    color: #1abc9c; 
-  }
+.upload-form {
+  margin: 20px 0px;
+  padding: 10px;
+}
 
-  .active {
-    margin: 0 auto;
-  }
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
 
-  .carousel-inner img {
-    margin: auto;
-    width: 100%;
-    background-size: cover;
-    background-position: center center;
-  }
+.img-upload-btn {
+  border: 1px solid #ccc;
+  background-color: #cccccc38;
+  height: 100px;
+}
 
-p {font-size: 16px;}
-.margin {margin-bottom: 45px;}
-.bg-1 { 
-    background-color: #1abc9c; /* teal */
-    color: #ffffff;
-  }
+.img-upload-btn:hover {
+  background-color: #cccccc5c;
+}
 
-.bg-2 { 
-    background-color: #1abc9c; /* teal */
-    color: #ffffff;
-  }
+.btn-file input[type='file'] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
 
-.bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
-  }
+#img-upload {
+  width: 100px;
+  height: 100px;
+}
 
-.bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
-  }
+.card #img-upload {
+  width: 100%;
+  height: 100%;
+}
 
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
+.message {
+  color: #28a745;
+}
 
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-  }
+.upload-btn {
+  margin: 10px 0px;
+  background-color: #1d8dd2 !important;
+  color: #fff !important;
+}
 
-.navbar-nav  li a:hover {
-    color: #1abc9c;
-  }
+/* card galery styles */
+.card {
+  margin: 10px 0px;
+}
 
+.card-img-top {
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.image-details {
+  margin-top: 10px;
+}
+
+/* End Mo styles */
