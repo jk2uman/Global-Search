@@ -26,7 +26,7 @@ var getCarousalImages = function() {
 
         var markup =
           '<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><div class="card"><img id="img-upload" class="card-img-top" src="' +
-          value.url +
+          value.secure_url +
           '" alt="' +
           value.original_filename +
           '"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text"></p><a href="#" class="btn btn-primary">Go somewhere</a></div></div></div>';
