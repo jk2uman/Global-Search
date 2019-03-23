@@ -28,9 +28,9 @@ function uploadImage(event){
   console.log('file',file);
   var formData= new FormData();
   formData.append('file',file);
-  formData.append('upload_preset',Cloudinary_Upload_Preset);
+  formData.append('upload_preset',cloudinary_Upload_Preset);
   axios({
-    url:Cloudinary_URL,
+    url:cloudinary_URL,
     method:'POST',
     headers:{
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -38,7 +38,7 @@ function uploadImage(event){
     data:formData
     })
     .then(function(res) {
-    console.log('this is repsonse',res);
+    console.log('this is response',res);
     }).catch(function(err){
 console.log(err);
 });
