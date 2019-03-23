@@ -8,4 +8,4 @@ Our app Global Photo allows a user to accomplish both, by sharing their photo an
 
 Other Global Photo users who like a beautiful photo and would like to visit the same location can. By clicking on a photo a map will display with a pin indicating its location.
 
-![alt text](https://github.com/juliank2/Global-Search/assets/images/globalphoto.jpg)
+![alt text](https://github.com/nicolemibarra/Global-Search/assets/images/globalphoto.jpg)
