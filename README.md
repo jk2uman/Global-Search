@@ -1,8 +1,8 @@
 #Group Project One
 
-##**Global-Photo**##
+**Global-Photo**
 
-###*"When you see something beautiful, it's natural to feel a desire to claim or even own it yourself in some way - and also to share it with others."*###
+*"When you see something beautiful, it's natural to feel a desire to claim or even own it yourself in some way - and also to share it with others."*
 
 1. Our app Global Photo allows a user to accomplish both. 
       1. By sharing their beautiful photo 
