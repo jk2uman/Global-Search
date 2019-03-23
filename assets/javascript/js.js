@@ -22,7 +22,41 @@ const customTxt = document.getElementById("custom-text");
 var cloudinary_URL = 'https://api.cloudinary.com/v1_1/monger/image/upload';
 var cloudinary_Upload_Preset = 'vh0ycmva';
 document.getElementById('real-file').addEventListener("change",uploadImage,false   )
+//$(document).ready( function() {
+  //$(document).on('change', '.btn-file :file', function() {
+//var input = $(this),
+  //label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+//input.trigger('fileselect', [label]);
+//});
 
+//$('.btn-file :file').on('fileselect', function(event, label) {
+    
+    //var input = $(this).parents('.input-group').find(':text'),
+      //  log = label;
+    
+    //if( input.length ) {
+    //    input.val(log);
+    //} else {
+    //    if( log ) alert(log);
+  //  }
+  
+//});
+//function readURL(input) {
+    //if (input.files && input.files[0]) {
+        //var reader = new FileReader();
+        
+        //reader.onload = function (e) {
+        //    $('#img-upload').attr('src', e.target.result);
+      //  }
+        
+    //    reader.readAsDataURL(input.files[0]);
+  //  }
+//}
+
+//$("#imgInp").change(function(){
+  //  readURL(this);
+//}); 	
+//});
 function uploadImage(event){
   var file= event.target.files[0]; 
   console.log('file',file);
@@ -70,14 +104,14 @@ var image = "";
                 var latDirection = myData.exifdata.GPSLatitudeRef;
                 
                 var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
-                //console.log(latFinal);
+                console.log(latFinal);
                 // Calculate longitude decimal
                 var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
                 var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
                 var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
                 var lonDirection = myData.exifdata.GPSLongitudeRef;
                 var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
-                //console.log(lonFinal);
+                console.log(lonFinal);
                // document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
             });
         }
