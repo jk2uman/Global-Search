@@ -1,10 +1,10 @@
 var config = {
-  apiKey: "AIzaSyAA9vKLx0PhUub9e1lT4NrkySL4lwGctVQ",
-  authDomain: "nicole-project-one.firebaseapp.com",
-  databaseURL: "https://nicole-project-one.firebaseio.com",
-  projectId: "nicole-project-one",
-  storageBucket: "nicole-project-one.appspot.com",
-  messagingSenderId: "498124625746"
+  apiKey: "AIzaSyD0Ox0KsT757nYrMSENHUGwXNn1gSkfeqU",
+  authDomain: "project-one-aff90.firebaseapp.com",
+  databaseURL: "https://project-one-aff90.firebaseio.com",
+  projectId: "project-one-aff90",
+  storageBucket: "project-one-aff90.appspot.com",
+  messagingSenderId: "303504563350"
 };
 firebase.initializeApp(config);
 const realFileBtn = document.getElementById("real-file");
@@ -38,7 +38,7 @@ function uploadImage(event){
     data:formData
     })
     .then(function(res) {
-    console.log('this is repsonse',res)
+    console.log('this is repsonse',res);
     }).catch(function(err){
 console.log(err);
 });
