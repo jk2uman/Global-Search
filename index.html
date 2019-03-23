@@ -13,8 +13,11 @@
         href="https://fonts.googleapis.com/css?family=Montserrat"
         rel="stylesheet"
       />
+      <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
       <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
       <style media="screen"></style>
     </head>
@@ -35,79 +38,16 @@
             </button>
             <a class="navbar-brand" href="#">GLOBAL SEARCH</a>
           </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">PHOTO</a></li>
-              <li><a href="#">WHERE</a></li>
-              <li><a href="#">WHEN</a></li>
-            </ul>
-          </div>
         </div>
       </nav>
 
-      <div class="container-fluid bg-1 text-center">
-        <h3 class="margin">PHOTO</h3>
-        <img src="image2.jpg" id="the-img" style="max-width: 100px;" /><br />
-      </div>
-
-      <div class="container-fluid bg-2 text-center">
-        <h3 class="margin">WHERE</h3>
-        <p id="pic-info"></p>
-        <p id="map-link"></p>
-        <a href="#" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </a>
-      </div>
-
-      <div class="container-fluid bg-3 text-center">
-        <h3 class="margin">SHUTTER</h3>
-        <br />
-        <div class="row">
-          <div class="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-              src="IMAGE1.jpg"
-              class="img-responsive margin"
-              style="width:75%"
-              alt="Image"
-            />
-          </div>
-          <div class="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-              src="IMAGE2.jpg"
-              class="img-responsive margin"
-              style="width:75%"
-              alt="Image"
-            />
-          </div>
-          <div class="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-              src="IMAGE3.jpg"
-              class="img-responsive margin"
-              style="width:75%"
-              alt="Image"
-            />
-          </div>
-        </div>
-      </div>
-
       <div style="display:flex;justify-content:center;align-items:center;">
-        <input style="display: none" type="file" id="real-file" />
-        <button type="button" id="custom-button">Upload Image</button>
+        <input type="file" id="real-file" />
         <span id="custom-text">No image, yet.</span>
       </div>
-
+      <!--<button onclick="addimage()" type="button">Add an image</button>-->
+      <!--<input type="file" onchange="previewFile()"><br>
+<img src="" height="200" alt="Image preview...">-->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -115,15 +55,9 @@
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <img src="./assets/images/sunset.jpg" alt="sunset" id="the-img" />
-            <p id="pic-info"></p>
-          </div>
-
-          <div class="item">
             <img src="./assets/images/desert.jpg" alt="desert" id="the-img" />
             <p id="pic-info"></p>
           </div>
@@ -132,8 +66,12 @@
             <img src="./assets/images/rock.jpg" alt="rock" id="the-img" />
             <p id="pic-info"></p>
           </div>
-        </div>
 
+          <div class="item">
+            <img src="./assets/images/sunset.jpg" alt="sunset" id="the-img" />
+            <p id="pic-info"></p>
+          </div>
+        </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
@@ -145,131 +83,8 @@
         </a>
       </div>
 
-      <div class="container-fluid bg-2 text-center">
-        <h3 class="margin">WHERE</h3>
-        <p id="map-link"></p>
-        <a href="#" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-search"></span> Search
-        </a>
-      </div>
-
-      <div class="container-fluid bg-3 text-center">
-        <h3 class="margin">SHUTTER</h3>
-        <br />
-        <div class="row">
-          <div class="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-              src="yosemite.jpg"
-              class="img-responsive margin"
-              style="width:80%"
-              alt="Image"
-            />
-          </div>
-          <div class="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-              src="laketahoe.jpg"
-              class="img-responsive margin"
-              style="width:80%"
-              alt="Image"
-            />
-          </div>
-          <div class="col-sm-4">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <img
-              src="moab.jpg"
-              class="img-responsive margin"
-              style="width:80%"
-              alt="Image"
-            />
-          </div>
-        </div>
-      </div>
-      <script type="text/javascript" src="exif.js"></script>
-
-      <script type="text/javascript">
-        const realFileBtn = document.getElementById('real-file');
-        const customBtn = document.getElementById('custom-button');
-        const customTxt = document.getElementById('custom-text');
-
-        customBtn.addEventListener('click', function() {
-          realFileBtn.click();
-        });
-
-        realFileBtn.addEventListener('change', function() {
-          if (realFileBtn.value) {
-            customTxt.innerHTML = realFileBtn.value;
-          } else {
-            customTxt.innerHTML = 'No image, yet.';
-          }
-        });
-      </script>
-      <script>
-        document.getElementById('the-img').onclick = function() {
-          EXIF.getData(this, function() {
-            myData = this;
-            console.log(myData.exifdata);
-            document.getElementById('pic-info').innerHTML =
-              'This photo was taken on ' +
-              myData.exifdata.DateTime +
-              ' with a ' +
-              myData.exifdata.Make +
-              ' ' +
-              myData.exifdata.Model;
-
-            // Calculate latitude decimal
-            var latDegree = myData.exifdata.GPSLatitude[0].numerator;
-            var latMinute = myData.exifdata.GPSLatitude[1].numerator;
-            var latSecond = myData.exifdata.GPSLatitude[2].numerator;
-            var latDirection = myData.exifdata.GPSLatitudeRef;
-
-            var latFinal = ConvertDMSToDD(
-              latDegree,
-              latMinute,
-              latSecond,
-              latDirection
-            );
-            console.log(latFinal);
-            // Calculate longitude decimal
-            var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
-            var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
-            var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
-            var lonDirection = myData.exifdata.GPSLongitudeRef;
-            var lonFinal = ConvertDMSToDD(
-              lonDegree,
-              lonMinute,
-              lonSecond,
-              lonDirection
-            );
-            console.log(lonFinal);
-            document.getElementById('map-link').innerHTML =
-              '<a href="http://www.google.com/maps/place/' +
-              latFinal +
-              ',' +
-              lonFinal +
-              '" target="_blank">Google Maps</a>';
-          });
-        };
-        function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-          var dd = degrees + minutes / 60 + seconds / 3600;
-
-          if (direction == 'S' || direction == 'W') {
-            dd = dd * -1;
-          }
-
-          return dd;
-        }
-      </script>
+      <script src="./assets/javascript/js.js"></script>
+      <script src="./assets/javascript/Exif.js"></script>
     </body>
   </html>
 </DOCTYPE>
